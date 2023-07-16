@@ -90,20 +90,20 @@ const productTest = new ProductManager
 
 // productTest.addProduct("Titulo de prueba", "Descripción de prueba", 30, "No Route")
 
-productTest.deleteProduct(1)
+// productTest.deleteProduct(1)
 
 // productTest.getProductById(1)
 // productTest.getProductById(2)
 // productTest.getProductById(3)
 // productTest.getProductById(4)
 
-productTest.updateProduct({title: "Prueba Actualizacion",
-description: "Prueba de Actualización",
-price: 500,
-thumbnail: "Sin imagen",
-code: "abc129",
-stock: 25,
-id: 2})
+// productTest.updateProduct({title: "Prueba Actualizacion",
+// description: "Prueba de Actualización",
+// price: 500,
+// thumbnail: "Sin imagen",
+// code: "abc129",
+// stock: 25,
+// id: 2})
 
 // productTest.showProducts()
 
