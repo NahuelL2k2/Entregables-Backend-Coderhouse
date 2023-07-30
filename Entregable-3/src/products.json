@@ -1,0 +1,47 @@
+[
+    {
+        "title": "Pintura Azul",
+        "description":"El color del mar",
+        "price": 150,
+        "thumbnail": "url thumbnail",
+        "code": 123,
+        "stock": 10,
+        "id": 1
+    },
+    {
+        "title": "Pintura Roja",
+        "description":"El color de la sangre",
+        "price": 200,
+        "thumbnail": "url thumbnail",
+        "code": 1234,
+        "stock": 20,
+        "id": 2
+    },
+    {
+        "title": "Pintura Verde",
+        "description":"El color de la naturaleza",
+        "price": 1300,
+        "thumbnail": "url thumbnail",
+        "code": 12345,
+        "stock": 30,
+        "id": 3
+    },
+    {
+        "title": "Pintura Amarilla",
+        "description":"El color del sol",
+        "price": 400,
+        "thumbnail": "url thumbnail",
+        "code": 123123,
+        "stock": 400,
+        "id": 4
+    },
+    {
+        "title": "Pintura Negra",
+        "description":"El color de la oscuridad",
+        "price": 500,
+        "thumbnail": "url thumbnail",
+        "code": 321,
+        "stock": 50,
+        "id": 5
+    }
+]

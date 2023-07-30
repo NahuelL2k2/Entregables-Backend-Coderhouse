@@ -1,8 +1,10 @@
 import { promises as fs, writeFile } from "fs"
 
-class ProductManager {
-    constructor() {
-        this.path = "./productos.json"
+
+
+export default class ProductManager {
+    constructor(path) {
+        this.path = path
         this.productos = []
     }
 
@@ -35,15 +37,19 @@ class ProductManager {
     }
 
     async getProducts() {
-        const productosObtenidos = await fs.readFile(this.path, "utf-8")
-        let productosParseados = JSON.parse(productosObtenidos)
-        return productosParseados
+        try {
+            const productosObtenidos = await fs.readFile(this.path, "utf-8")
+            return JSON.parse(productosObtenidos)
+        } catch (error) {
+            console.error("Error al obtener los productos:", error)
+            return []
+        }
     }
 
-    async showProducts(){
+    async showProducts() {
         let productos = await this.getProducts()
 
-        for(let i in productos){
+        for (let i in productos) {
             console.log(`\nTItulo: ${productos[i].title} \nDescripcion:${productos[i].description} \nPrecio:${productos[i].price} \nThumbnail:${productos[i].thumbnail} \nCodigo:${productos[i].code} \nStock:${productos[i].stock} \n`)
         }
     }
@@ -60,52 +66,25 @@ class ProductManager {
     }
 
     async deleteProduct(productId) {
-        let productos = await fs.readFile(this.path)
-        let productosParseados = JSON.parse(productos)
-        let productoBorrado = productosParseados.find((product) => product.id === productId)
-        let productosActualizados = productosParseados.filter((product) => product.id !== productId)
-        await fs.writeFile(this.path, JSON.stringify(productosActualizados,null,2), "utf8")
-        console.log(productoBorrado, "<----- Ha sido eliminado")
-        return productosActualizados
+        try {
+            let productos = await this.getProducts(); 
+            const productIndex = productos.findIndex((p) => p.id === productId) // 
+            if (productIndex === -1) {
+                console.log("Producto no encontrado.")
+                return
+            }
+            const deletedProduct = productos.splice(productIndex, 1)[0]
+            await fs.writeFile(this.path, JSON.stringify(productos), "utf8")
+            console.log(`${deletedProduct.title} ha sido eliminado.`)
+        } catch (error) {
+            console.error("Error al eliminar el producto:", error)
+        }
     }
-
-    updateProduct = async({id, ...product}) => {
+    updateProduct = async ({ id, ...product }) => {
         let productos = await this.deleteProduct(id)
         console.log("-----------------------------------------------");
         console.log(productos)
-        let productosActualizados = [{id, ...product}, ...productos]
-        await fs.writeFile(this.path, JSON.stringify(productosActualizados,null,2), "utf8")
+        let productosActualizados = [{ id, ...product }, ...productos]
+        await fs.writeFile(this.path, JSON.stringify(productosActualizados, null, 2), "utf8")
     }
 }
-
-// Test
-
-const productTest = new ProductManager
-
-productTest.addProduct("Titulo de prueba", "Descripción de prueba 1", 10, "Sin ruta", 1010, 21)
-
-
-productTest.addProduct("Titulo de prueba", "Descripción de prueba 2", 20, "Sin ruta", 1011, 22)
-
-// productTest.addProduct("Titulo de prueba", "Descripción de prueba", 20, "Sin ruta", 2)
-
-
-// productTest.addProduct("Titulo de prueba", "Descripción de prueba", 30, "No Route")
-
-await productTest.deleteProduct(1)
-
-// productTest.getProductById(1)
-// productTest.getProductById(2)
-// productTest.getProductById(3)
-// productTest.getProductById(4)
-
-await productTest.updateProduct({title: "Prueba Actualizacion",
-description: "Prueba de Actualización",
-price: 500,
-thumbnail: "Sin imagen",
-code: "abc129",
-stock: 25,
-id: 2})
-
-// productTest.showProducts()
-

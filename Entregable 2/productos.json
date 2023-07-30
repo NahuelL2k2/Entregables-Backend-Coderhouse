@@ -1,0 +1,11 @@
+[
+  {
+    "id": 2,
+    "title": "Prueba Actualizacion",
+    "description": "Prueba de Actualización",
+    "price": 500,
+    "thumbnail": "Sin imagen",
+    "code": "abc129",
+    "stock": 25
+  }
+]
