@@ -12,12 +12,14 @@ app.get("/products", async (req, res) => {
   const { limit } = req.query
   try {
     const products = await manager.getProducts()
-    if (isNaN(limit)){
-      res.status(400).json({ message: "El parametro limite debe ser un numero" })
-    }
-    else if (limit) {
-      const limited = products.slice(0, limit)
-      res.status(200).json(limited)
+    if (limit) {
+      if (isNaN(limit)) {
+        res.status(400).json({ message: "El parametro limite debe ser un numero" })
+      }
+      else {
+        const limited = products.slice(0, limit)
+        res.status(200).json(limited)
+      }
     }
     else {
       res.status(200).json(products)
