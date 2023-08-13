@@ -1,0 +1,89 @@
+[
+	{
+		"title": "Barrita Felfort Chocolate",
+		"description": "Barra de cereal con base de chocolate",
+		"price": 80,
+		"code": "Fel002",
+		"stock": 10,
+		"status": true,
+		"category": "Chocolates",
+		"id": 10
+	},
+	{
+		"title": "Barrita Felfort Chocolate Blanco",
+		"description": "Barra de cereal con base de chocolate blanco",
+		"price": 150,
+		"thumbnail": "Sin imagen",
+		"category": "Chocolates",
+		"code": "Fel001",
+		"stock": 22,
+		"status": true,
+		"id": 2
+	},
+	{
+		"title": "Alfajor Guaymallen",
+		"description": "Alfajor clasico de la marca Guaymallen",
+		"price": 250,
+		"thumbnail": "Sin imagen",
+		"category": "Alfajores",
+		"code": "Guay001",
+		"stock": 30,
+		"status": true,
+		"id": 3
+	},
+	{
+		"title": "Alfajor Jorgito",
+		"description": "Alfajor clasico de la marca Jorgito",
+		"price": 250,
+		"thumbnail": "Sin imagen",
+		"category": "Alfajores",
+		"code": "Jorg001",
+		"stock": 40,
+		"status": true,
+		"id": 4
+	},
+	{
+		"title": "Alfajor Blanco Jorgelin",
+		"description": "Alfajor blanco triple de la marca Jorgelin",
+		"price": 250,
+		"thumbnail": "Sin imagen",
+		"category": "Alfajores",
+		"code": "Jlin001",
+		"stock": 50,
+		"status": true,
+		"id": 5
+	},
+	{
+		"title": "Alfajor Negro Jorgelin",
+		"description": "Alfajor Negro triple de la marca Jorgelin",
+		"price": 250,
+		"thumbnail": "Sin imagen",
+		"category": "Alfajores",
+		"code": "Jlin002",
+		"stock": 60,
+		"status": true,
+		"id": 6
+	},
+	{
+		"title": "Alfajor Milka",
+		"description": "Alfajor clasico marca Milka",
+		"price": 250,
+		"thumbnail": "Sin imagen",
+		"category": "Alfajores",
+		"code": "Mil001",
+		"stock": 70,
+		"status": true,
+		"id": 7
+	},
+	{
+		"title": "Barrita Felfort de Frutilla",
+		"description": "Barra de cereal con sabor a Frutilla",
+		"price": 150,
+		"thumbnail": "Sin imagen",
+		"category": "Chocolates",
+		"status": true,
+		"code": "Fel004",
+		"stock": 25,
+		"id": 8
+	}
+]

@@ -82,8 +82,6 @@ export default class ProductManager {
     }
     updateProduct = async ({ id, ...product }) => {
         let productos = await this.deleteProduct(id)
-        console.log("-----------------------------------------------");
-        console.log(productos)
         let productosActualizados = [{ id, ...product }, ...productos]
         await fs.writeFile(this.path, JSON.stringify(productosActualizados, null, 2), "utf8")
     }
