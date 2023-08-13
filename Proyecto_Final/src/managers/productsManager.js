@@ -90,12 +90,13 @@ export default class ProductManager {
       products[indexOfProduct] = {
         ...products[indexOfProduct],
         ...updatedProduct,
-      };
+      }
+      products[indexOfProduct].id = id
 
       await fs.promises.writeFile(
         this.path,
         JSON.stringify(products, null, "\t")
-      );
+      )
       return products[indexOfProduct];
     } catch (error) {
       console.log(error);
