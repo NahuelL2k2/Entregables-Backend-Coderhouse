@@ -1,26 +1,5 @@
 [
 	{
-		"title": "Barrita Felfort Chocolate",
-		"description": "Barra de cereal con base de chocolate",
-		"price": 80,
-		"code": "Fel002",
-		"stock": 10,
-		"status": true,
-		"category": "Chocolates",
-		"id": 1
-	},
-	{
-		"title": "Barrita Felfort Chocolate Blanco",
-		"description": "Barra de cereal con base de chocolate blanco",
-		"price": 150,
-		"thumbnail": "Sin imagen",
-		"category": "Chocolates",
-		"code": "Fel001",
-		"stock": 22,
-		"status": true,
-		"id": 2
-	},
-	{
 		"title": "Alfajor Guaymallen",
 		"description": "Alfajor clasico de la marca Guaymallen",
 		"price": 250,
@@ -85,5 +64,16 @@
 		"code": "Fel004",
 		"stock": 25,
 		"id": 8
+	},
+	{
+		"title": "Kei",
+		"category": "m",
+		"description": "K",
+		"thumbnail": "imagen.jpg",
+		"stock": "10",
+		"price": "10",
+		"code": "123",
+		"status": true,
+		"id": 9
 	}
 ]

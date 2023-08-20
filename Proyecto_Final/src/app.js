@@ -33,13 +33,14 @@ socketServer.on("connection", async (socket) => {
   const productList = await pManager.getProducts({})
   socketServer.emit("sendProducts", productList)
   socket.on("addProduct", async (product) => {
-    await pManager.addProdcut(product)
+    await pManager.addProduct(product)
     const productList = await pManager.getProducts({})
     socketServer.emit("sendProducts", productList)
   })
   socket.on("deleteProduct", async (id) => {
     await pManager.deleteProduct(id)
     const productList = await pManager.getProducts({})
+    console.log("deleteProduct");
     socketServer.emit("sendProducts", productList)
   })
   socket.on("disconnect", () => {

@@ -1,11 +1,15 @@
-const socket = io()
+const socketClient = io()
 
 socketClient.on("sendProducts", (productList) => {
     updateProductList(productList)
 })
 
+socketClient.on("deleteProduct", (productList) => {
+    updateProductList(productList)
+})
+
 function updateProductList(list) {
-    const div = document.getElementById()
+    const div = document.getElementById("listDiv")
 
     let productList = list
     let products = ""
@@ -25,7 +29,7 @@ function updateProductList(list) {
                         <p>Stock: ${product.stock}</p>
                     </div>
                 </div>`
-        
+
     });
     div.innerHTML = products
 }
@@ -33,7 +37,9 @@ function updateProductList(list) {
 
 
 const form = document.getElementById("formRTP")
-form.addEventListener("submit", (event) =>{
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+
     let title = form.elements.title.value
     let category = form.elements.category.value
     let description = form.elements.description.value
@@ -50,9 +56,13 @@ form.addEventListener("submit", (event) =>{
         stock,
         price,
         code,
-      });
-
-      form.reset()
+    });
+    Swal.fire({
+        title: "Tarea Realizada",
+        text: "Producto añadido",
+        icon: "success"
+    })
+    form.reset()
 })
 
 document.getElementById("delete-btn").addEventListener("click", (event) => {
@@ -60,4 +70,11 @@ document.getElementById("delete-btn").addEventListener("click", (event) => {
     const deleteId = parseInt(deleteIdInput.value);
     socketClient.emit("deleteProduct", deleteId);
     deleteIdInput.value = "";
-  });
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Producto eliminado",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+});
