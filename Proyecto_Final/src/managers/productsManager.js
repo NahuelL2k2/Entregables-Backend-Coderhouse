@@ -40,7 +40,7 @@ export default class ProductManager {
         id = products[products.length - 1].id + 1;
       }
       const status = true
-      products.push({ ...product, status, id});
+      products.push({ ...product, status, id });
       await fs.promises.writeFile(
         this.path,
         JSON.stringify(products, null, "\t")
